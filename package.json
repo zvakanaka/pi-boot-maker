@@ -1,0 +1,42 @@
+{
+  "name": "pi-boot-maker",
+  "version": "1.0.0",
+  "description": "Set up a USB boot device for a Raspberry Pi",
+  "main": "index.js",
+  "bin": {
+    "pi-boot-maker": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zvakanaka/pi-boot-maker"
+  },
+  "scripts": {
+    "clean": "rm -rf cache",
+    "clean:config": "rm cache/boot/ssh cache/boot/wpa_supplicant.conf",
+    "lint": "npx standard \"**/*[!.test].js\" --fix",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "keywords": [
+    "raspberry",
+    "rpi4",
+    "4",
+    "creator"
+  ],
+  "author": "Adam Quinton",
+  "license": "MIT",
+  "dependencies": {
+    "bar-charts": "^1.0.2",
+    "fs-sync-utils": "^1.1.1",
+    "promise-prompt": "^1.1.1"
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "standard": "^14.3.4"
+  }
+}
