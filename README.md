@@ -1,7 +1,7 @@
 # Raspberry Pi Boot USB Maker
 Downloads and writes the latest Pi OS to a USB device. Also sets up [WiFi, SSH](https://www.raspberrypi.org/documentation/configuration/boot_folder.md), and the needed boot files for USB boot. 
 
-This automates the 2nd half of [Jeff Geerlings instructions](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd). YOU STILL HAVE TO DO THE FIRST HALF (steps 1-6) SPECIFIED [HERE](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd) ONCE.
+This automates the 2nd half of [Jeff Geerlings instructions](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd). YOU STILL HAVE TO DO THE FIRST HALF ONCE (steps 1-6) SPECIFIED [HERE](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd).
 
 # WARNINGS
 - USB boot is still in [beta](https://www.raspberrypi.org/forums/viewtopic.php?t=274595)
@@ -31,13 +31,9 @@ npm start
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the code of conduct, and the process for submitting pull requests.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
 ## Authors
 
-* **Adam Quinton** - *Initial work* - [zvakanaka](https://github.com/zvakanaka)
+* **Adam Quinton** - *1.0.0* - [zvakanaka](https://github.com/zvakanaka)
 
 See also the list of [contributors](https://github.com/zvakanaka/pi-boot-maker/contributors) who participated in this project.
 
