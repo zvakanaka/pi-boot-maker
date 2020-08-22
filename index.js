@@ -82,9 +82,15 @@ network={
     console.log(`Wrote ${piOsFile} to ${diskInfo(disk)}`)
   }
 
+  console.log(`\nWaiting 5 seconds for boot partition to mount...`)
+  await timeout(5000)
+
+  if (disk.device === null) {
+    throw new Error('Could not get mountpoint: disk.device is null')
+  }
   const bootPartitionMountPoint = await getFatMountPoint(disk.device)
   let bootMountPointInfo = await mountPointInfo(bootPartitionMountPoint)
-  const bootPartitionMountedAsReadOnly = bootMountPointInfo.access === 'ro'
+  const bootPartitionMountedAsReadOnly = bootMountPointInfo.access !== 'rw'
   if (bootPartitionMountedAsReadOnly) {
     console.log('Boot partition was mounted as read-only\nUnmounting boot partition before remounting')
     const bootPartitionIdentifier = bootMountPointInfo.partitionIdentifier
