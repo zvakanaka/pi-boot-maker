@@ -7,6 +7,7 @@ const exec = require('util').promisify(require('child_process').exec)
 const unzip = require('./lib/unzip')
 const getFatMountPoint = require('./lib/getFatMountPoint')
 const mountPointInfo = require('./lib/mountPointInfo')
+const timeout = require('./lib/timeout')
 
 const piOsFile = '2020-05-27-raspios-buster-arm64.zip'
 const piOsDownloadUrlDirectory = 'raspios_arm64/images/raspios_arm64-2020-05-28'
