@@ -62,7 +62,7 @@ network={
     .map((d, i) => `${i + 1}) ${diskInfo(d)}`)
     .join('\n\t'))
 
-  const diskNumber = await prompt('\nType the disk number from above that you want to overwrite: ')
+  const diskNumber = await prompt('\nType the disk number from above that you want to write Pi OS to: ')
   if (diskNumber > disks.length || diskNumber < 1) {
     throw new Error(`Disk number ${diskNumber} is not in the list.`)
   }
@@ -77,7 +77,7 @@ network={
     console.log(`Writing ${piOsFile} to ${diskInfo(disk)}\n`)
     await writeZipToDisk({
       zipFileName: `./cache/downloads/${piOsFile}`,
-      device: `${disk.device}` // '/home/adam/Desktop/test.iso'
+      device: `${disk.device}`
     })
     console.log(`Wrote ${piOsFile} to ${diskInfo(disk)}`)
   }
@@ -118,7 +118,7 @@ network={
     console.log()
   }
 
-  // TODO: sudo umount bootMountPoint
+  // TODO: ask if user would like to sudo umount bootMountPoint
 
   console.log('Now safely remove and plug the drive into your pi!')
 })()
