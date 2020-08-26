@@ -9,8 +9,8 @@ const getFatMountPoint = require('./lib/getFatMountPoint')
 const mountPointInfo = require('./lib/mountPointInfo')
 const timeout = require('./lib/timeout')
 
-const piOsFile = '2020-05-27-raspios-buster-arm64.zip'
-const piOsDownloadUrlDirectory = 'raspios_arm64/images/raspios_arm64-2020-05-28'
+const piOsFile = '2020-08-20-raspios-buster-arm64.zip'
+const piOsDownloadUrlDirectory = 'raspios_arm64/images/raspios_arm64-2020-08-24'
 
 ;(async () => {
   // create cache directories
@@ -29,7 +29,7 @@ const piOsDownloadUrlDirectory = 'raspios_arm64/images/raspios_arm64-2020-05-28'
   let shouldAskForWifiConfig = true
   if (exists('./cache/boot/wpa_supplicant.conf')) {
     const useExistingWifiConfig = await prompt('Found previous WiFi config, use it? [Y/n] ')
-    if (useExistingWifiConfig.toLocaleLowerCase() !== 'y' || useExistingWifiConfig !== '') {
+    if (useExistingWifiConfig.toLowerCase() !== 'y' || useExistingWifiConfig !== '') {
       shouldAskForWifiConfig = false
     }
   }
@@ -74,7 +74,7 @@ network={
   const sure = await prompt('\nWould you like to write Raspberry Pi OS to this device? (your disk will be overwritten) [y/N] ')
   console.log()
 
-  if (sure === 'y') {
+  if (sure.toLowerCase() === 'y') {
     console.log(`Writing ${piOsFile} to ${diskInfo(disk)}\n`)
     await writeZipToDisk({
       zipFileName: `./cache/downloads/${piOsFile}`,
@@ -108,7 +108,7 @@ network={
   // cp boot files and configs to bootMountPoint
   await exec(`sudo cp ./cache/boot/* ${bootPartitionMountPoint}/`)
   const bootDriveIsUsb = await prompt('Will you be booting your pi from a USB device? [y/N] ')
-  if (bootDriveIsUsb === 'y') {
+  if (bootDriveIsUsb.toLowerCase() === 'y') {
     // download git repo of boot mods https://github.com/raspberrypi/firmware
     const firmwareZip = './cache/downloads/firmware/master.zip'
     console.log()
@@ -120,7 +120,7 @@ network={
       await unzip(firmwareZip, './cache/firmware/', 'firmware-master/boot/*.elf firmware-master/boot/*.dat')
     }
 
-    console.log('Copying USB boot firmware files to drive')
+    console.log('\nCopying USB boot firmware files to drive')
     await exec(`sudo cp ./cache/firmware/firmware-master/boot/* ${bootPartitionMountPoint}/`)
     console.log()
   }
