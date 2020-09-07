@@ -36,7 +36,7 @@
     "promise-prompt": "^1.1.1"
   },
   "devDependencies": {
-    "husky": "^4.2.5",
+    "husky": "^4.3.0",
     "standard": "^14.3.4"
   }
 }
