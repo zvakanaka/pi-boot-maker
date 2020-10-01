@@ -104,26 +104,9 @@ network={
     console.log('\nBoot partition remounted as read-write')
   }
 
-  console.log(`\nCopying custom boot configuration files (WiFi, SSH access) to ${bootPartitionMountPoint}`)
+  console.log(`\nCopying configuration files (WiFi, SSH access) to ${bootPartitionMountPoint}`)
   // cp boot files and configs to bootMountPoint
   await exec(`sudo cp ./cache/boot/* ${bootPartitionMountPoint}/`)
-  const bootDriveIsUsb = await prompt('Will you be booting your pi from a USB device? [y/N] ')
-  if (bootDriveIsUsb.toLowerCase() === 'y') {
-    // download git repo of boot mods https://github.com/raspberrypi/firmware
-    const firmwareZip = './cache/downloads/firmware/master.zip'
-    console.log()
-    await downloadIfNotAlready(
-      'https://github.com/raspberrypi/firmware/archive/master.zip',
-      firmwareZip)
-    if (!exists('./cache/firmware/firmware-master')) {
-      console.log(`Unzipping ${firmwareZip}`)
-      await unzip(firmwareZip, './cache/firmware/', 'firmware-master/boot/*.elf firmware-master/boot/*.dat')
-    }
-
-    console.log('\nCopying USB boot firmware files to drive')
-    await exec(`sudo cp ./cache/firmware/firmware-master/boot/* ${bootPartitionMountPoint}/`)
-    console.log()
-  }
 
   // TODO: ask if user would like to sudo umount bootMountPoint
 
