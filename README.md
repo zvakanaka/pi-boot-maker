@@ -1,13 +1,9 @@
 # Raspberry Pi Boot USB Maker
-Downloads and writes the latest Pi OS to a USB device. Also sets up [WiFi, SSH](https://www.raspberrypi.org/documentation/configuration/boot_folder.md), and the needed boot files for USB boot. 
-
-This automates the 2nd half of [Jeff Geerlings instructions](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd). YOU STILL HAVE TO DO THE FIRST HALF ONCE (steps 1-6) SPECIFIED [HERE](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd).
+Downloads and writes the latest 64-bit Raspberry Pi OS to a storage device. Also sets up [WiFi, SSH](https://www.raspberrypi.org/documentation/configuration/boot_folder.md). 
 
 # WARNINGS
-- USB boot is still in [beta](https://www.raspberrypi.org/forums/viewtopic.php?t=274595)
 - Only for Raspberry Pi 4
 - USE THIS SOFTWARE AT YOUR OWN RISK
-- It's gonna make your Pi really fast
 
 ## Instructions
 ```

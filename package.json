@@ -1,7 +1,7 @@
 {
   "name": "pi-boot-maker",
-  "version": "1.0.0",
-  "description": "Set up a USB boot device for a Raspberry Pi",
+  "version": "2.0.0",
+  "description": "Set up a boot device for a Raspberry Pi",
   "main": "index.js",
   "bin": {
     "pi-boot-maker": "./index.js"
